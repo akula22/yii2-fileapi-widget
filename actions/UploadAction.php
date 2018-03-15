@@ -1,8 +1,8 @@
 <?php
 
-namespace vova07\fileapi\actions;
+namespace akula22\fileapi\actions;
 
-use vova07\fileapi\Widget;
+use akula22\fileapi\Widget;
 use yii\base\Action;
 use yii\base\DynamicModel;
 use yii\base\InvalidCallException;

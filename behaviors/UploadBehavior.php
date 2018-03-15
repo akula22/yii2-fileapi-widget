@@ -1,6 +1,6 @@
 <?php
 
-namespace vova07\fileapi\behaviors;
+namespace akula22\fileapi\behaviors;
 
 use yii\base\Behavior;
 use yii\base\InvalidParamException;
@@ -11,7 +11,7 @@ use Yii;
 
 /**
  * Class UploadBehavior
- * @package vova07\fileapi\behaviors
+ * @package akula22\fileapi\behaviors
  * Uploading file behavior.
  *
  * Usage:

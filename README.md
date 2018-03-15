@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist vova07/yii2-fileapi-widget "*"
+php composer.phar require --prefer-dist akula22/yii2-fileapi-widget "*"
 ```
 
 or add
 
 ```
-"vova07/yii2-fileapi-widget": "*"
+"akula22/yii2-fileapi-widget": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -27,7 +27,7 @@ Usage:
 ```php
 // MyController.php
 
-use vova07\fileapi\actions\UploadAction as FileAPIUpload;
+use akula22\fileapi\actions\UploadAction as FileAPIUpload;
 ...
 
 public function actions()
@@ -44,7 +44,7 @@ public function actions()
 ```php
 // MyModel.php
 
-use vova07\fileapi\behaviors\UploadBehavior;
+use akula22\fileapi\behaviors\UploadBehavior;
 ...
 
 public function behaviors()
@@ -72,7 +72,7 @@ public function behaviors()
 ```php
 // _form.php
 
-use vova07\fileapi\Widget as FileAPI;
+use akula22\fileapi\Widget as FileAPI;
 ...
 
 echo $form->field($model, 'preview_url')->widget(

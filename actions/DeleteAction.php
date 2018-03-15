@@ -1,6 +1,6 @@
 <?php
 
-namespace vova07\fileapi\actions;
+namespace akula22\fileapi\actions;
 
 use yii\base\Action;
 use yii\base\InvalidConfigException;

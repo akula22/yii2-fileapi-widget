@@ -14,7 +14,7 @@
  * @var boolean $browseGlyphicon Show/Hide browse glyphicon
  */
 
-use vova07\fileapi\Widget;
+use akula22\fileapi\Widget;
 
 ?>
     <div id="<?= $selector; ?>" class="uploader">

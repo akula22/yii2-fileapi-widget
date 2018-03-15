@@ -1,6 +1,6 @@
 <?php
 
-namespace vova07\fileapi;
+namespace akula22\fileapi;
 
 use yii\web\AssetBundle;
 
