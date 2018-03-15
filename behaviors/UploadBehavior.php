@@ -37,6 +37,7 @@ use Yii;
  */
 class UploadBehavior extends Behavior
 {
+    public $prevew = [];
     /**
      * @event Event that will be call after successful file upload
      */
@@ -136,15 +137,34 @@ class UploadBehavior extends Behavior
             }
         } else {
             $tempFile = $this->tempFile($attribute);
+
             $file = $this->file($attribute);
+            $newFile =  $this->newFile($attribute);
+
+            if(isset($this->prevew['width']))
+            {
+                Image::thumbnail($tempFile, $this->prevew['width'], $this->prevew['height'])
+                ->save($newFile, [$this->prevew['quality']]);
+            }
+            
 
             if (is_file($tempFile) && FileHelper::createDirectory($this->path($attribute))) {
-                if (rename($tempFile, $file)) {
+                if (rename($tempFile, $file)) 
+                {
+                    //resize  main file
+                    if(isset($this->attributes['pic']['resize']['width']))
+                    {
+                        Image::getImagine()->open($file)->thumbnail(new Box($this->attributes['pic']['resize']['width'], $this->attributes['pic']['resize']['height']))->save($file , ['quality' => 80]);
+                    }
+                   
+                   
+
                     if ($insert === false && $this->unlinkOnSave === true && $this->owner->getOldAttribute(
                             $attribute
                         )
                     ) {
                         $this->deleteFile($this->oldFile($attribute));
+                        $this->deleteFile($this->smallOldFile($attribute));
                     }
                     $this->triggerEventAfterUpload();
                 } else {
@@ -156,6 +176,12 @@ class UploadBehavior extends Behavior
                 $this->owner->setAttribute($attribute, $this->owner->getOldAttribute($attribute));
             }
         }
+
+        $im = new \Imagick($file);
+        $im->setImageBackgroundColor('white');
+
+        $im->setImageFormat('jpg');
+        $im->writeImage($file);
     }
 
     /**
@@ -265,9 +291,12 @@ class UploadBehavior extends Behavior
     public function beforeDelete()
     {
         if ($this->unlinkOnDelete) {
-            foreach ($this->attributes as $attribute => $config) {
-                if ($this->owner->$attribute) {
+            foreach ($this->attributes as $attribute => $config) 
+            {
+                if ($this->owner->$attribute) 
+                {
                     $this->deleteFile($this->file($attribute));
+                    $this->deleteFile($this->newFile($attribute));
                 }
             }
         }
@@ -324,4 +353,20 @@ class UploadBehavior extends Behavior
     {
         return file_exists($this->file($attribute));
     }
+
+
+    public function newFile($attribute)
+    {
+        if(!empty($this->prevew['folder'])) {
+            return $this->path($attribute) . $this->prevew['folder'] . '/' . $this->owner->$attribute;
+        } else {
+            return $this->path($attribute) . '/' . $this->owner->$attribute;
+        }
+    }
+
+    public function smallOldFile($attribute)
+    {
+        return $this->path($attribute) . $this->prevew['folder'] . '/' . $this->owner->getOldAttribute($attribute);
+    }
+
 }
