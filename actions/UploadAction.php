@@ -99,6 +99,9 @@ class UploadAction extends Action
             } else {
                 if ($this->unique === true && $model->file->extension) {
                     $model->file->name = uniqid() . '.' . $model->file->extension;
+                    if($model->file->extension == 'png') {
+                        $model->file->name = uniqid() . '.jpg';
+                    }
                 }
                 if ($model->file->saveAs($this->path . $model->file->name)) {
                     $result = ['name' => $model->file->name];
