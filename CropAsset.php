@@ -32,7 +32,7 @@ class CropAsset extends AssetBundle
      * @inheritdoc
      */
 	public $depends = [
-		'vova07\fileapi\Asset',
+		'akula22\fileapi\Asset',
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
 	];

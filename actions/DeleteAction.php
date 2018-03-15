@@ -16,7 +16,7 @@ use Yii;
  * {
  *     return [
  *         'delete-file' => [
- *             'class' => 'vova07\fileapi\actions\DeleteAction',
+ *             'class' => 'akula22\fileapi\actions\DeleteAction',
  *             'path' => '@path/to/files'
  *         ]
  *     ];

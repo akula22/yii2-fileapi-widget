@@ -12,7 +12,7 @@ class SingleAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-	public $sourcePath = '@vova07/fileapi/assets';
+	public $sourcePath = '@akula22/fileapi/assets';
 
     /**
      * @inheritdoc
@@ -25,6 +25,6 @@ class SingleAsset extends AssetBundle
      * @inheritdoc
      */
 	public $depends = [
-		'vova07\fileapi\Asset'
+		'akula22\fileapi\Asset'
 	];
 }

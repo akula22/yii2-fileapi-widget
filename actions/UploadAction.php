@@ -23,7 +23,7 @@ use Yii;
  * {
  *     return [
  *         'upload' => [
- *             'class' => 'vova07\fileapi\actions\UploadAction',
+ *             'class' => 'akula22\fileapi\actions\UploadAction',
  *             'path' => '@path/to/files',
  *             'uploadOnlyImage' => false
  *         ]

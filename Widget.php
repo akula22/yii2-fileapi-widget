@@ -18,7 +18,7 @@ use Yii;
  * Usage:
  * ```
  * ...
- * echo \vova07\fileapi\Widget::widget([
+ * echo \akula22\fileapi\Widget::widget([
  *     'name' => 'fileapi',
  *     'settings' => [
  *         'autoUpload' => true
@@ -29,7 +29,7 @@ use Yii;
  * or
  * ```
  * ...
- * echo $form->field($model, 'file')->widget('vova07\fileapi\Widget', [
+ * echo $form->field($model, 'file')->widget('akula22\fileapi\Widget', [
  *     'settings' => [
  *         'autoUpload' => true
  *     ]
@@ -188,7 +188,7 @@ class Widget extends InputWidget
      */
     public static function t($category, $message, $params = [], $language = null)
     {
-        return Yii::t('vova07/' . $category, $message, $params, $language);
+        return Yii::t('akula22/' . $category, $message, $params, $language);
     }
 
     /**
@@ -238,12 +238,12 @@ class Widget extends InputWidget
      */
     public function registerTranslations()
     {
-        if (!isset(Yii::$app->i18n->translations['vova07/fileapi']) && !isset(Yii::$app->i18n->translations['vova07/*'])) {
-            Yii::$app->i18n->translations['vova07/fileapi'] = [
+        if (!isset(Yii::$app->i18n->translations['akula22/fileapi']) && !isset(Yii::$app->i18n->translations['akula22/*'])) {
+            Yii::$app->i18n->translations['akula22/fileapi'] = [
                 'class' => 'yii\i18n\PhpMessageSource',
-                'basePath' => '@vova07/fileapi/messages',
+                'basePath' => '@akula22/fileapi/messages',
                 'fileMap' => [
-                    'vova07/fileapi' => 'fileapi.php'
+                    'akula22/fileapi' => 'fileapi.php'
                 ],
                 'forceTranslation' => true
         ];
