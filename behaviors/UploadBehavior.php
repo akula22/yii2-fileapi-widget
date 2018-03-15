@@ -8,6 +8,8 @@ use yii\db\ActiveRecord;
 use yii\helpers\FileHelper;
 use yii\validators\Validator;
 use Yii;
+use yii\imagine\Image;
+use Imagine\Image\Box;
 
 /**
  * Class UploadBehavior
