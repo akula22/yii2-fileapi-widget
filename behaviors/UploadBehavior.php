@@ -39,7 +39,7 @@ use Imagine\Image\Box;
  */
 class UploadBehavior extends Behavior
 {
-    public $prevew = [];
+    public $preview = [];
     /**
      * @event Event that will be call after successful file upload
      */
@@ -143,10 +143,10 @@ class UploadBehavior extends Behavior
             $file = $this->file($attribute);
             $newFile =  $this->newFile($attribute);
 
-            if(isset($this->prevew['width']))
+            if(isset($this->preview['width']))
             {
-                Image::thumbnail($tempFile, $this->prevew['width'], $this->prevew['height'])
-                ->save($newFile, [$this->prevew['quality']]);
+                Image::thumbnail($tempFile, $this->preview['width'], $this->preview['height'])
+                ->save($newFile, [$this->preview['quality']]);
             }
             
 
@@ -359,8 +359,8 @@ class UploadBehavior extends Behavior
 
     public function newFile($attribute)
     {
-        if(!empty($this->prevew['folder'])) {
-            return $this->path($attribute) . $this->prevew['folder'] . '/' . $this->owner->$attribute;
+        if(!empty($this->preview['folder'])) {
+            return $this->path($attribute) . $this->preview['folder'] . '/' . $this->owner->$attribute;
         } else {
             return $this->path($attribute) . '/' . $this->owner->$attribute;
         }
@@ -368,7 +368,7 @@ class UploadBehavior extends Behavior
 
     public function smallOldFile($attribute)
     {
-        return $this->path($attribute) . $this->prevew['folder'] . '/' . $this->owner->getOldAttribute($attribute);
+        return $this->path($attribute) . $this->preview['folder'] . '/' . $this->owner->getOldAttribute($attribute);
     }
 
 }
