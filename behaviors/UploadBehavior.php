@@ -366,9 +366,13 @@ class UploadBehavior extends Behavior
         }
     }
 
-    public function smallOldFile($attribute)
+public function smallOldFile($attribute)
     {
-        return $this->path($attribute) . $this->preview['folder'] . '/' . $this->owner->getOldAttribute($attribute);
+        if(!empty($this->preview['folder'])) {
+            return $this->path($attribute) . $this->preview['folder'] . '/' . $this->owner->getOldAttribute($attribute);
+        } else {
+            return $this->path($attribute) . '/' . $this->owner->getOldAttribute($attribute);
+        }
     }
 
 }
